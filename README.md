@@ -1,4 +1,4 @@
-# Sistema de agendar envio SMS
+# Sistema de agendar envio de SMS
 
 <b>Descrição:</b> Sistema de agendar envio de SMS, onde é possível criar um grupo de telefones, programar a hora de envio, o conteúdo da mensagem e depois agendar o envio. É possível editar o grupo de telefone, apagar números e também cancelar o envio da mensagem. Possui também a funcionalidade de importar a lista de telefones por CSV e validações.
 
