@@ -1,0 +1,81 @@
+@import './src/assets/scss/palette';
+
+.container-modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.433);
+  z-index: 101;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 500ms;
+
+  .subcontainer-modal {
+    min-height: 150px;
+    width: 300px;
+    border-radius: 15px;
+    padding: 30px;
+    color: #FFF;
+
+    &.success {
+      background: mat-color($mat-green, 500);
+    }
+
+    &.error {
+      background: mat-color($mat-red, 500);
+    }
+
+    .container-content {
+      margin-bottom: 20px;
+      text-align: center;
+
+      h3 {
+        font-size: 22px;
+      }
+
+      .description {
+        font-size: 18px;
+        margin-top: 20px;
+      }
+    }
+
+    .container-buttons {
+      position: relative;
+      width: 100%;
+      height: 90px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-evenly;
+      font-size: 16px;
+
+      button {
+        min-width: 120px;
+        font-size: 18px;
+        border: 1px solid mat-color($candy-app-primary, 500);
+
+        &.btnPrimary {
+          background: #FFF;
+          color: #000;
+        }
+
+        &.btnSecondary {
+          background: mat-color($candy-app-primary, 500);
+        }
+      }
+    }
+  }
+
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

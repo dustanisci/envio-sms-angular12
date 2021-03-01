@@ -1,0 +1,39 @@
+<div class="container-phones">
+  <h1>Crie uma lista de telefones</h1>
+
+  <div class="container-inputs">
+    <mat-form-field>
+      <mat-label>Nome da lista</mat-label>
+      <input matInput [(ngModel)]="listPhone.listName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Telefone</mat-label>
+      <input matInput [ngModel]="phone" (ngModelChange)="phone = maskPhone.transform($event)" maxlength="15">
+    </mat-form-field>
+    <button mat-button [disabled]="phone.length < 14" (click)="addPhone()">Adicionar</button>
+
+    <div class="container-inputfile">
+      <label>Importar telefones por *.CSV</label>
+      <input #inputFile type="file" accept=".csv" (change)="uploadFile($event)">
+    </div>
+  </div>
+
+  <div class="container-phones">
+    <h2>Telefones adicionados</h2>
+    <mat-chip-list>
+      <mat-chip *ngFor="let phone of listPhone.phones" color="primary" selected>
+        {{ phone }}
+        <mat-icon matChipRemove (click)="removePhone(phone)">cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <button mat-button
+    [disabled]="!listPhone.listName || !listPhone.phones || !listPhone.listName.length || !listPhone.phones.length"
+    (click)="save()">Salvar</button>
+</div>
+
+<app-full-screen-loading *ngIf="loader"></app-full-screen-loading>
+<app-modal *ngIf="modal.isOpen" [description]="modal.description" [type]="modal.type" [btnPrimary]="modal.btnPrimary"
+  (btnPrimaryClick)="modal.isOpen = false"></app-modal>

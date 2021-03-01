@@ -1,0 +1,14 @@
+.container-home {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 20%;
+
+    @media only screen and (max-width: 800px) {
+      width: 200px;
+    }
+  }
+}

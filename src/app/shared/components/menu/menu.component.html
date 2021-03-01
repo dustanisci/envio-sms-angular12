@@ -1,0 +1,15 @@
+<mat-icon *ngIf="!isOpen;else isClose" class="menu" (click)="isOpen = !isOpen">menu</mat-icon>
+<ng-template #isClose>
+  <mat-icon class="menu" (click)="isOpen = !isOpen">close</mat-icon>
+</ng-template>
+
+<nav [ngClass]="{'menu-open': isOpen }">
+  <div class="container-nav">
+    <div class="container-item" *ngFor="let item of items" [routerLink]="['/'+item.href]"
+      [routerLinkActive]="['active']" (click)="click(item.href)">
+      <mat-icon>{{ item.icon }}
+      </mat-icon>
+      <label>{{ item.label }}</label>
+    </div>
+  </div>
+</nav>

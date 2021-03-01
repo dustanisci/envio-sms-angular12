@@ -1,0 +1,29 @@
+<div class="container-sms">
+  <h1>SMS</h1>
+
+  <mat-form-field>
+    <mat-label>Message</mat-label>
+    <input matInput [(ngModel)]="sms.msg" maxlength="256">
+    <mat-hint align="end">{{sms.msg.length}} / 256</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="time" [(ngModel)]="sms.hour">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Lista de telefones</mat-label>
+    <mat-select [(ngModel)]="sms.listPhone.id">
+      <mat-option *ngFor="let item of listPhone" [value]="item.id">
+        {{item.listName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <button mat-button [disabled]="!sms.msg || !sms.listPhone.id || !sms.hour" (click)="save()">Salvar</button>
+</div>
+
+<app-full-screen-loading *ngIf="loader"></app-full-screen-loading>
+<app-modal *ngIf="modal.isOpen" [description]="modal.description" [type]="modal.type" [btnPrimary]="modal.btnPrimary"
+  (btnPrimaryClick)="modal.isOpen = false"></app-modal>

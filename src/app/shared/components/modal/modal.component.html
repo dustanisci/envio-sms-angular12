@@ -1,0 +1,13 @@
+<div class="container-modal">
+  <div class="subcontainer-modal" [ngClass]="{'success': type === 1, 'error' : type === 0}">
+    <div class="container-content">
+      <h3 *ngIf="title">{{ title }}</h3>
+      <div *ngIf="description" class="description">{{ description }}</div>
+    </div>
+
+    <div class="container-buttons">
+      <button *ngIf="btnPrimary && btnPrimary.length" class="btnPrimary" mat-button (click)="btnPrimaryClick.emit()">{{ btnPrimary }}</button>
+      <button *ngIf="btnSecondary && btnSecondary.length" class="btnSecondary" mat-button (click)="btnSecondaryClick.emit()">{{ btnSecondary }}</button>
+    </div>
+  </div>
+</div>

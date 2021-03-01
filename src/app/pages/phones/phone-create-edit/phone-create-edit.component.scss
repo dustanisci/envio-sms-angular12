@@ -1,0 +1,107 @@
+@import './src/assets/scss/palette';
+
+.container-phones {
+  background: #FFF;
+  width: 600px;
+  display: block;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 20px;
+
+  @media only screen and (max-width: 800px) {
+    width: auto;
+    margin-top: 70px;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+
+    @media only screen and (max-width: 500px) {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+  }
+
+  .container-inputs {
+    mat-form-field {
+      width: 50%;
+      margin-bottom: 20px;
+
+      @media only screen and (max-width: 500px) {
+        width: 100%;
+      }
+
+      &:nth-of-type(1) {
+        display: block;
+      }
+
+      mat-label {
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
+
+    .container-inputfile{
+      margin: 25px 0;
+      label{
+        display: block;
+      }
+    }
+
+    button {
+      background: mat-color($candy-app-primary, 500);
+      color: #fff;
+      display: inline;
+      margin-left: 20px;
+
+      &:disabled {
+        background: mat-color($candy-app-primary, 500, 0.6);
+      }
+
+      @media only screen and (max-width: 500px) {
+        width: 100%;
+        display: block;
+        margin: 0;
+      }
+    }
+  }
+
+  .container-phones {
+    min-height: 150px;
+    border: 1px solid rgba(0, 0, 0, 0.289);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 25px 0;
+
+    mat-chip-list {
+      mat-chip {
+        @media only screen and (max-width: 500px) {
+          margin-bottom: 25px;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  >button {
+    display: block;
+    width: 100px;
+    margin: 20px auto 0 auto;
+    background: mat-color($mat-green, 500);
+    color: #FFF;
+
+    &:disabled {
+      background: mat-color($mat-green, 500, 0.6);
+    }
+
+    @media only screen and (max-width: 500px) {
+      width: 100%;
+    }
+  }
+}

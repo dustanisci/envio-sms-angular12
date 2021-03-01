@@ -1,0 +1,23 @@
+<div class="container-accordion">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="isOpen = true" (closed)="isOpen = false">
+      <mat-expansion-panel-header>
+
+        <mat-panel-title>
+          <label *ngIf="status" class="status"
+            [ngClass]="{'sent': status === statusValue.SENT, 'canceled': status === statusValue.CANCELED, 'pending' : status === statusValue.PENDING}">
+            {{ status }}</label>
+
+          <label>{{ title }}</label>
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+
+      <ng-content></ng-content>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-icon class="btn-cancel" *ngIf="enableCancel" (click)="btnDelete.emit()">cancel</mat-icon>
+  <mat-icon class="btn-edit" *ngIf="enableEdit" (click)="btnEdit.emit()">edit</mat-icon>
+</div>

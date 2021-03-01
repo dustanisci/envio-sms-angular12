@@ -1,0 +1,32 @@
+<div class="container-sms">
+  <app-accordion *ngFor="let item of sms" [status]="item.status" [title]="item.hour" (btnEdit)="edit(item)"
+    (btnDelete)="actionCancel(item)">
+
+    <content>
+      <label>Mensagem</label>
+      <span>{{ item.msg }}</span>
+    </content>
+
+    <content>
+      <label>Grupo de contatos</label>
+      <span>{{ item.listPhone.listName }}</span>
+    </content>
+
+    <mat-chip-list>
+      <mat-chip *ngFor="let phone of item.listPhone.phones" color="primary" selected>
+        {{ phone }}
+      </mat-chip>
+    </mat-chip-list>
+
+  </app-accordion>
+
+  <div class="no-record" *ngIf="!sms.length && !loader">
+    <h1>Não há SMS agendados</h1>
+  </div>
+</div>
+
+<app-modal *ngIf="modal.isOpen" [description]="modal.description" [type]="modal.type"
+  [btnSecondary]="modal.btnSecondary ? modal.btnSecondary : ''" [btnPrimary]="modal.btnPrimary"
+  (btnPrimaryClick)="modal.isOpen = false" (btnSecondaryClick)="cancel()"></app-modal>
+
+<app-full-screen-loading *ngIf="loader"></app-full-screen-loading>
