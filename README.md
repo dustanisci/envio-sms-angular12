@@ -2,8 +2,6 @@
 
 <b>Descrição:</b> Sistema de agendar envio de SMS, onde é possível criar um grupo de telefones, programar a hora de envio, o conteúdo da mensagem e depois agendar o envio. É possível editar o grupo de telefone, apagar números e também cancelar o envio da mensagem. Possui também a funcionalidade de importar a lista de telefones por CSV e validações.
 
-<b>Endereço de acesso:</b> https://dustanisci.github.io/sms-angular11/
-
 <b>Endereço do prótipo criado:</b> https://www.figma.com/file/frG1uMTTjLjQiXAbudqEpi/Untitled
 
 <b>Tecnologias utilizadas:</b>
